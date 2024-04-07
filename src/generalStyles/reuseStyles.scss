@@ -1,0 +1,20 @@
+// for popups with background half transparent and popup made center
+@import "./colors.scss";
+
+// post container mertics
+$padding-around: 0.5rem 0.7rem;
+
+@mixin overlayPopup() {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+  * {
+    box-sizing: border-box;
+    cursor: default;
+  }
+}

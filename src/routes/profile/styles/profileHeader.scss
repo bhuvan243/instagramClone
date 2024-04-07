@@ -1,0 +1,38 @@
+header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-content: center;
+  width: 50rem;
+  height: 10rem;
+  .profile-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+    }
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .title {
+      display: flex;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      font-weight: 600;
+      li {
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+}
