@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/followPopup.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+const ProfileCard = ({ profile }) => {
+  const [followBtnState, setFollowBtnState] = useState(() => {
+    return profile.following
+      ? {
+          className: "follow-btn following",
+          displayName: "Following",
+        }
+      : {
+          className: "follow-btn not-following",
+          displayName: "Follow",
+        };
+  });
+  function changeFollowState() {
+    if (followBtnState.displayName === "Following") {
+      setFollowBtnState({
+        className: "follow-btn not-following",
+        displayName: "Follow",
+      });
+    } else {
+      setFollowBtnState({
+        className: "follow-btn following",
+        displayName: "Following",
+      });
+    }
+  }
+  return (
+    <div className="profile-card">
+      <div className="info">
+        <img alt="random-image" src="https://picsum.photos/200/300" />
+        <div className="names">
+          <span className="username">{profile.name}</span>
+          <span className="display-name">{profile.email}</span>
+        </div>
+      </div>
+      <button className={followBtnState.className} onClick={changeFollowState}>
+        {followBtnState.displayName}
+      </button>
+    </div>
+  );
+};
 
 const FollowPopUp = ({ props }) => {
   const navigate = useNavigate();
@@ -30,21 +71,7 @@ const FollowPopUp = ({ props }) => {
           {profileList &&
             profileList.length > 0 &&
             profileList.map((profile, index) => {
-              return (
-                <div className="profile-card" key={index}>
-                  <div className="info">
-                    <img
-                      alt="random-image"
-                      src="https://picsum.photos/200/300"
-                    />
-                    <div className="names">
-                      <span className="username">{profile.name}</span>
-                      <span className="display-name">{profile.email}</span>
-                    </div>
-                  </div>
-                  <button className="status-btn">Follow</button>
-                </div>
-              );
+              return <ProfileCard profile={profile} key={index} />;
             })}
         </section>
       </div>

@@ -90,8 +90,7 @@
             }
           }
         }
-        .status-btn {
-          background-color: $button-standard;
+        .follow-btn {
           color: $name;
           border: none;
           height: 2.2rem;
@@ -100,8 +99,17 @@
           padding-inline: 1.2rem;
           border-radius: 0.5rem;
         }
-        .status-btn:hover {
+        .not-following {
+          background-color: $button-standard;
+        }
+        .not-following:hover {
           background-color: $button-hover;
+        }
+        .following {
+          background-color: $following-btn-bg;
+        }
+        .following:hover {
+          background-color: $following-btn-hover;
         }
       }
     }

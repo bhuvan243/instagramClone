@@ -18,6 +18,6 @@ export const Post = {
   create: `${baseUrl}/post/create`,
   all: `${baseUrl}/post/all`,
   like: `${baseUrl}/post/like`,
-  comment: `${baseUrl}/post/comment`,
+  addComment: `${baseUrl}/post/comment`,
   getComments: `${baseUrl}/post/comments`,
 };

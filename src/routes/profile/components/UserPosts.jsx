@@ -6,6 +6,7 @@ import { userPostsThunk } from "../redux/userPostsSlice";
 
 const MyPost = ({ post }) => {
   const [overlayShow, setOverlayShow] = useState(false);
+  
   const navigate = useNavigate();
   function showOverlay() {
     setOverlayShow(true);
